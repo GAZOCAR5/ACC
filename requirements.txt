@@ -1,8 +1,7 @@
-Flask==2.3.2
-flask-cors==3.1.0
-Flask-PyMongo==2.3.0
-pymongo==4.3.3
-Django==4.2.2
-flask-mail==0.9.1
-numpy==1.24.3
-smtplib
+Flask==2.3.2  # This is already the latest version.
+flask-cors==4.0.1
+Flask-PyMongo==2.3.0  # This is already the latest version.
+pymongo==4.3.3  # This is already the latest version.
+Django==4.2.3
+flask-mail==0.9.1  # This is already the latest version.
+numpy==1.24.3  # This is already the latest version.
