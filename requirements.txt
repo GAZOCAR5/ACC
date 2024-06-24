@@ -5,3 +5,4 @@ pymongo==4.3.3  # This is already the latest version.
 Django==4.2.3
 flask-mail==0.9.1  # This is already the latest version.
 numpy==1.24.3  # This is already the latest version.
+gunicorn==20.1.0
