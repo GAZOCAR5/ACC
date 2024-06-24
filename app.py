@@ -36,8 +36,8 @@ def email(receiver_email,subject,body):#CHECK
     # SMTP Server Configuration
     smtp_server = "smtp.office365.com"  # Replace with your SMTP server
     smtp_port = 587  # Replace with your SMTP port, usually 587 for TLS
-    sender_email = "ACCprograpro@outlook.com"  # Replace with your email address
-    sender_password = "PatronCenzano"  # Replace with your email account password
+    sender_email = "prograpro@outlook.com"  # Replace with your email address
+    sender_password = "ACCtester123"  # Replace with your email account password
 
     # Create the email content
     subject = "Test Email from Python"
@@ -319,6 +319,7 @@ def progress1():
         feedback5 = grades["feedback5"]
 
         total_grade = grade1 * 0.4 + grade2 * 0.15 + grade3 * 0.15 + grade4 * 0.15 + grade5 * 0.15
+        total_grade = round(total_grade,1)
         progress1_dict = {
             "correction1": {"grade": grade1, "feedback": feedback1},
             "correction2": {"grade": grade2, "feedback": feedback2},
@@ -358,6 +359,7 @@ def progress2():
         feedback7 = grades["feedback7"]
 
         total_grade = grade1 * 0.1 + grade2 * 0.1 + grade3 * 0.25 + grade4 * 0.15 + grade5 * 0.15 + grade6 * 0.1 + grade7 * 0.15
+        total_grade = round(total_grade,1)
         progress2_dict = {
             "correction1": {"grade": grade1, "feedback": feedback1},
             "correction2": {"grade": grade2, "feedback": feedback2},
@@ -399,6 +401,7 @@ def progress3():
         feedback7 = grades["feedback7"]
 
         total_grade = grade1 * 0.2 + grade2 * 0.1 + grade3 * 0.2 + grade4 * 0.15 + grade5 * 0.1 + grade6 * 0.15 + grade7 * 0.1
+        total_grade = round(total_grade,1)
         progress3_dict = {
             "correction1": {"grade": grade1, "feedback": feedback1},
             "correction2": {"grade": grade2, "feedback": feedback2},
@@ -521,12 +524,13 @@ def company_evaluation():
         grade10 = int(grades["grade10"])
         
         final_grade = grade1 * 0.1 + grade2 * 0.1 + grade3 * 0.1 + grade4 * 0.1 + grade5 * 0.1 + grade6 * 0.1 + grade7 * 0.1 + grade8 * 0.1 + grade9 * 0.1 + grade10 * 0.1
-        
+        final_grade = round(final_grade,1)
         user = collection.find_one({"EmailDB": username})
         if user:
             collection.update_one({"EmailDB": username}, {"$set": {f"CompanyGrade{numberEval}": str(final_grade)}})
             if numberEval == "3":
                 total_grade = (float(user["CompanyGrade1"]) + float(user["CompanyGrade2"]) + float(user["CompanyGrade3"])) / 3
+                total_grade = round(total_grade,1)
                 collection.update_one({"EmailDB": username}, {"$set": {"CompanyGrade": str(total_grade)}})
                 return jsonify({"message": "Final grade saved"}), 200
             return jsonify({"message": "Grade saved"}), 200
